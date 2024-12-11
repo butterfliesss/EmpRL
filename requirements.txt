@@ -1,0 +1,11 @@
+torch==2.4.0
+transformers==4.44.2
+trl==0.9.6
+numpy==1.26.4
+pandas==2.2.3
+tqdm==4.66.5
+scikit-learn==1.5.2
+nltk==3.9.1
+wandb==0.18.7
+datasets==2.21.0
+sentencepiece==0.2.0

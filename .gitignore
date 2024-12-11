@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+# C extensions
+*.so
+.vscode
+.history/
+*.log
+wandb/
+outputs/
+*.json
+*.pt

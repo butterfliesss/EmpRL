@@ -1,0 +1,24 @@
+python run_dialogue.py \
+    --model_name_or_path outputs/empathetic/ppo_finetune-t5base/checkpoint-1600 \
+    --do_predict \
+    --predict_with_generate \
+    --train_file data/empatheticdialogues/sft/train.json \
+    --validation_file data/empatheticdialogues/sft/valid.json \
+    --test_file data/empatheticdialogues/sft/test.json \
+    --context_column input \
+    --response_column output \
+    --output_dir outputs/empathetic/ppo_finetune-t5base_test \
+    --per_device_train_batch_size=8 \
+    --per_device_eval_batch_size=2 \
+    --gradient_accumulation_steps=1 \
+    --overwrite_output_dir \
+    --max_source_length 200 \
+    --max_target_length 50 \
+    --learning_rate=1e-4 \
+    --lr_scheduler_type="linear" \
+    --num_train_epochs=3 \
+    --save_strategy="epoch" \
+    --save_total_limit=1 \
+    --generation_max_length 30 \
+    --seed 42 \
+ > empathetic_ppo_finetune_t5base_test.log 2>&1 &

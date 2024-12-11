@@ -1,0 +1,26 @@
+python run_dialogue_ppo.py \
+    --model_name_or_path outputs/empathetic/finetune-t5base \
+    --do_train \
+    --train_file data/empatheticdialogues/sft_addlabel/train.json \
+    --output_dir outputs/empathetic/ppo_finetune-t5base \
+    --context_column input \
+    --response_column output \
+    --emo_label emotional_reactions \
+    --exp_label explorations \
+    --int_label interpretations \
+    --per_device_train_batch_size=8 \
+    --gradient_accumulation_steps=4 \
+    --learning_rate=1e-5 \
+    --overwrite_output_dir \
+    --predict_with_generate \
+    --max_source_length 200 \
+    --max_target_length 50 \
+    --save_steps=400 \
+    --num_train_epochs=3 \
+    --save_strategy="epoch" \
+    --save_total_limit=3 \
+    --seed 42 \
+    --use_score_norm \
+    --use_score_scaling \
+    --whiten_rewards \
+ > empathetic_ppo_finetune_t5base.log 2>&1 &
